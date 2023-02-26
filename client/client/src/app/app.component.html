@@ -1,0 +1,39 @@
+
+
+
+<style>
+  .navbar {
+  list-style-type: none;
+  display: flex;
+}
+
+ li a {
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  background-color: #ddd;
+  color: rgb(45, 45, 45);
+}
+
+.navbar li a.active {
+  background-color: #04AA6D;
+  color: rgb(62, 61, 61);
+}
+</style>
+
+<nav>
+<ul class="navbar">
+  <li><a id="home" href="#">Home</a></li>
+  <li><a id="products" routerLink="products">Products</a></li>
+  <li><a id="addProduct" routerLink="products/add">Add new product</a></li>
+</ul>
+</nav>
+
+
+<router-outlet></router-outlet>
+
+<app-spinner></app-spinner>

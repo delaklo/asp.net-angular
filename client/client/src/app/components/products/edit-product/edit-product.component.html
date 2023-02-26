@@ -1,0 +1,154 @@
+<style>
+
+    input, textarea { 
+    outline: none;
+    }
+    .decor{
+        margin: 0 auto;
+    }
+
+    h1 {
+    margin-top: 0;
+    font-weight: 500;
+    }
+    form {
+    position: relative;
+    width: 80%;
+    border-radius: 30px;
+    background: #fff;
+    }
+    .form-left-decoration,
+    .form-right-decoration {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    border-radius: 20px;
+    background: #5a7233;
+    }
+    .form-left-decoration {
+    bottom: 60px;
+    left: -30px;
+    }
+    .form-right-decoration {
+    top: 60px;
+    right: -30px;
+    }
+    .form-left-decoration:before,
+    .form-left-decoration:after,
+    .form-right-decoration:before,
+    .form-right-decoration:after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    border-radius: 30px;
+    background: #fff;
+    }
+    .form-left-decoration:before {
+    top: -20px;
+    }
+    .form-left-decoration:after {
+    top: 20px;
+    left: 10px;
+    }
+    .form-right-decoration:before {
+    top: -20px;
+    right: 0;
+    }
+    .form-right-decoration:after {
+    top: 20px;
+    right: 10px;
+    }
+    .circle {
+    position: absolute;
+    bottom: 80px;
+    left: -55px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    }
+    .form-inner {
+    padding: 40px;
+    }
+    .form-inner input,
+    .form-inner textarea {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 20px;
+    background: #d0dfe8;
+    }
+    .form-inner textarea {
+    resize: none;
+    }
+    .btn {
+    width: 30%;
+    height: 40px;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: none;
+    border-bottom: 4px solid #3e4f24;
+    background: #50c94c; 
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    float: right;
+    }
+    .btn:hover {
+    background: #14c04d;
+    cursor: pointer;
+    } 
+
+    .btn-delete {
+    width: 30%;
+    height: 40px;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: none;
+    border-bottom: 4px solid #3e4f24;
+    background: #d32b2b; 
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    float: left;
+    }
+
+    .btn-delete:hover{
+    background: #e31212;
+    cursor: pointer;
+    }
+
+    @media (min-width: 568px) {
+    form {
+    width: 60%;
+    }
+    }
+  </style>
+
+  <form action="/" class="decor" #form="ngForm" (ngSubmit)="updateProduct()">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+      <h1>Edit Product</h1>
+      <input type="text" placeholder="Id" 
+      name="id" readonly [(ngModel)] = "productDetails.id">
+      <input type="text" placeholder="Name" 
+      name="name" [(ngModel)] = "productDetails.name">
+      <textarea placeholder="Description" rows="5"
+      name="description" [(ngModel)] = "productDetails.description"></textarea>
+      <input type="text" placeholder="Category"
+      name="category" [(ngModel)] = "productDetails.category">
+      <input type="text" placeholder="Price"
+      name="price" [(ngModel)] = "productDetails.price">
+      <button class="btn" type="submit">Save</button>
+      <button class="btn-delete" type="button" (click)="deleteProduct(productDetails.id)">Delete</button>
+    </div>
+  </form>
+
